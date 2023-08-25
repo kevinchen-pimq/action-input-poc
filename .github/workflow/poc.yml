@@ -1,0 +1,21 @@
+name: POC
+on:
+  push:
+  workflow_dispatch:
+
+jobs:
+  case-1:
+    name: Case 1
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v3
+      - uses: ./.github/actions/test-post-run-input
+        with:
+          test-input: 'foo'
+
+  case-2:
+    name: Case 2
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v3
+      - uses: ./.github/actions/extra-step

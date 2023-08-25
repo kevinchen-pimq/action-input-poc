@@ -1,0 +1,9 @@
+name: extra-step
+
+runs:
+  using: composite
+  steps:
+    - name: extra step
+      uses: ./.github/actions/test-post-run-input
+      with:
+        test-input: 'foo'

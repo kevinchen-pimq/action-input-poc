@@ -1,0 +1,20 @@
+name: test-post-run-input
+
+inputs:
+  test-input:
+    default: 'default'
+    description: test input
+    required: false
+
+runs:
+  run-some-action:
+    name: Run action
+    runs-on: ubuntu-20.04
+    steps:
+      - name: Run this action
+        uses: gacts/run-and-post-run@v1
+        with:
+          run: echo "input is: ${{ inputs.test-input }}"
+          post: |
+            echo "First post"
+            echo "input is: ${{ inputs.test-input }}"
